@@ -23,7 +23,6 @@ import com.gimbal.android.BeaconManager;
 import com.gimbal.android.BeaconEventListener;
 import com.gimbal.android.BeaconSighting;
 import com.gimbal.android.Beacon;
-import com.gimbal.android.PlaceManager;
 
 
 public class Gimbal2 extends CordovaPlugin {
@@ -48,9 +47,6 @@ public class Gimbal2 extends CordovaPlugin {
             if (simpleDateFormat == null) {
                 simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
             }
-
-            //check runtime permissions
-            PlaceManager.getInstance().startMonitoring();
 
             beaconEventListener = new BeaconEventListener() {
                 @Override
@@ -89,9 +85,6 @@ public class Gimbal2 extends CordovaPlugin {
 
         if (action.equals("startBeaconManager")) {
             if (beaconManager == null) return false;
-
-
-
 
             beaconManager.startListening();
             return true;
